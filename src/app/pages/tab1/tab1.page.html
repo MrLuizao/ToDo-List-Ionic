@@ -1,6 +1,6 @@
 <ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
+  <ion-toolbar >
+    <ion-title >
       Pendings
     </ion-title>
   </ion-toolbar>
@@ -8,6 +8,13 @@
 
 
 <ion-content [fullscreen]="true">
+
+  <ion-list>
+    <ion-item>
+      <ion-icon slot="end" name="moon"></ion-icon>
+      <ion-toggle slot="end" [ngModel]="darkMode" (ionChange)="changeTheme()"></ion-toggle>
+    </ion-item>
+  </ion-list>
   
   <app-lists [finished]="false"></app-lists>
  

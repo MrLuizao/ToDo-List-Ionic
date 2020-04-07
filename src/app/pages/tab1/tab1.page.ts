@@ -10,9 +10,14 @@ import { AlertController } from '@ionic/angular';
 })
 export class Tab1Page {
 
+  darkMode: boolean = true;
+
   constructor( public wishlistService: WishlistService,
                private router: Router,
-               private alertCtrl: AlertController) {}
+               private alertCtrl: AlertController) {
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)');
+    this.darkMode = prefersDark.matches;
+  }
 
   async goToAddList(){
 
@@ -51,6 +56,11 @@ export class Tab1Page {
 
     alert.present();
     
+  }
+
+  changeTheme(){
+    this.darkMode = !this.darkMode;
+    document.body.classList.toggle( 'dark' );
   }
 
 }
