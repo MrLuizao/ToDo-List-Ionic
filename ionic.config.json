@@ -1,5 +1,7 @@
 {
   "name": "LkY-Co",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular"
 }
