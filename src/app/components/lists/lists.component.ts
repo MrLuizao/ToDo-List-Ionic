@@ -2,11 +2,13 @@ import { Component, OnInit, Input, ViewChild } from '@angular/core';
 import { List } from 'src/app/models/list.model';
 import { Router } from '@angular/router';
 import { WishlistService } from 'src/app/services/wishlist.service';
-import { AlertController, IonList } from '@ionic/angular';
+import { AlertController, IonList, PopoverController, NavParams } from '@ionic/angular';
+import { PopoversComponent } from '../popovers/popovers.component';
 
 @Component({
   selector: 'app-lists',
   templateUrl: './lists.component.html',
+
   styleUrls: ['./lists.component.scss'],
 })
 export class ListsComponent implements OnInit {
@@ -17,7 +19,8 @@ export class ListsComponent implements OnInit {
 
   constructor( public wishlistService: WishlistService,
                private router: Router,
-               private alertCtrl: AlertController ) { }
+               private alertCtrl: AlertController,
+               private popOverCtrl: PopoverController ) { }
 
   ngOnInit() {}
 
@@ -72,7 +75,20 @@ export class ListsComponent implements OnInit {
     });
 
     alert.present();
-    
+  }
+
+  async showPopOver( event: Event, listName: List){
+
+    const popover = await this.popOverCtrl.create({
+
+      component: PopoversComponent,
+      componentProps:{
+        sendData: listName.items      
+      },
+      event: event
+      
+    });
+    return popover.present();
   }
 
 }

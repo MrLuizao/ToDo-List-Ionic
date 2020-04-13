@@ -3,19 +3,25 @@ import { CommonModule } from '@angular/common';
 import { ListsComponent } from './lists/lists.component';
 import { IonicModule } from '@ionic/angular';
 import { PipesModule } from '../pipes/pipes.module';
+import { PopoversComponent } from './popovers/popovers.component';
 
 
 @NgModule({
   declarations: [
-    ListsComponent
+    ListsComponent,
+    PopoversComponent
   ],
   exports: [
-    ListsComponent
+    ListsComponent,
+    PopoversComponent
   ],
   imports: [
     CommonModule,
     IonicModule,
     PipesModule
+  ],
+  entryComponents: [
+    PopoversComponent
   ]
 })
 export class ComponentsModule { }

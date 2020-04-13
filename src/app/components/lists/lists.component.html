@@ -1,15 +1,13 @@
 
  <ion-list>
 
-  <ion-item-sliding *ngFor="let listName of wishlistService.lists | filterCompletes: finished">
+   <ion-item-sliding *ngFor="let listName of wishlistService.lists | filterCompletes: finished">
 
-    <ion-item detail (click)="selectedtList( listName )">
+    <ion-item detail (click)="selectedtList( listName )" (press)="showPopOver( $event, listName )">
       <ion-label>
         {{listName.title}}
       </ion-label>
-
       <ion-note slot="end" color="danger">{{listName.items.length}} items</ion-note>
-
     </ion-item>
 
     <ion-item-options side="end">

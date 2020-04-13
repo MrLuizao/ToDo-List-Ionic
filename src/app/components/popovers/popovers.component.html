@@ -1,0 +1,10 @@
+<ion-list >
+  <ion-list-header style="margin-bottom: 0.5rem; font-size: larger;">
+    List Items
+  </ion-list-header>
+  <ion-item *ngFor="let item of dataPassed" >
+    <ion-label>
+      {{item.description}}
+    </ion-label>
+  </ion-item>
+</ion-list>
