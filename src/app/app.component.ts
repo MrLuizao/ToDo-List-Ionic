@@ -28,7 +28,7 @@ export class AppComponent {
       this.statusBar.styleDefault();
 
       this.splashScreen.hide();
-      timer(5000).subscribe( ()=> this.showSplash = false);
+      //timer(5000).subscribe( ()=> this.showSplash = false);
 
       this.checkDarkTheme();
     });
